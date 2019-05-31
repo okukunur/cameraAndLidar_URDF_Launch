@@ -1,0 +1,449 @@
+<?xml version='1.0'?>
+
+<robot name="mount">
+
+	<link name="base_plane">
+		<inertial>
+			
+          		<mass value="0.19"/>
+          		<inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.083" iyz="0.0" izz="0.083"/>
+        	</inertial>
+  		<visual name="visual">
+          		<geometry>
+            			<box size="0.1778 0.298 0.0031"/>
+          		</geometry>
+          		<material name="yellow2">
+				<color rgba="0.6 0.8 0 0.6"/>
+			</material>
+		</visual>
+		<collision name="collision">
+			<geometry>
+				<box size="0.1778 0.298 0.0031"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="base_plane_to_front_mount" type="fixed">
+		<parent link="front_mount"/>
+		<child link="base_plane"/>
+		<origin xyz="0.0 0 0.0" rpy="0 0 0"/> 
+	</joint>
+	
+	<!-- support1 -->
+	<link name="support1">
+		<inertial>
+			<mass value="0.03628739"/>
+			<inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.083" iyz="0.0" izz="0.083"/>
+		</inertial>
+		<collision name="collision">
+			<geometry>
+				<cylinder length="0.09525" radius="0.0047625"/>
+			</geometry>
+		</collision>
+		<visual name="visual">
+			<geometry>
+				<cylinder length="0.09525" radius="0.0047625"/>
+			</geometry>
+			<material name="grey"/>
+		</visual>
+	</link>
+	
+	<joint name="base_to_support1" type="fixed">
+		<parent link="base_plane"/>
+		<child link="support1"/>
+		<origin xyz="0.0762 0 0.0492"/>
+	</joint>
+
+
+	<!-- support2 -->
+	<link name="support2">
+		<inertial>
+			<mass value="0.03628739"/>
+			<inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.083" iyz="0.0" izz="0.083"/>
+		</inertial>
+		<collision name="collision">
+			<geometry>
+				<cylinder length="0.09525" radius="0.0047625"/>
+			</geometry>
+		</collision>
+		<visual name="visual">
+			<geometry>
+				<cylinder length="0.09525" radius="0.0047625"/>
+			</geometry>
+			<material name="grey"/>
+		</visual>
+	</link>
+	
+	<joint name="base_to_support2" type="fixed">
+		<parent link="base_plane"/>
+		<child link="support2"/>
+		<origin xyz="-0.0762 0 0.0492"/>
+	</joint>
+
+	<!-- support3 -->
+	<link name="support3">
+		<inertial>
+			<mass value="0.03628739"/>
+			<inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.083" iyz="0.0" izz="0.083"/>
+		</inertial>
+		<collision name="collision">
+			<geometry>
+				<cylinder length="0.09525" radius="0.0047625"/>
+			</geometry>
+		</collision>
+		<visual name="visual">
+			<geometry>
+				<cylinder length="0.09525" radius="0.0047625"/>
+			</geometry>
+			<material name="grey"/>
+		</visual>
+	</link>
+	
+	<joint name="base_to_support3" type="fixed">
+		<parent link="base_plane"/>
+		<child link="support3"/>
+		<origin xyz="0.0762 0.136 0.0492"/>
+	</joint>
+
+	<!-- support4 -->
+	<link name="support4">
+		<inertial>
+			<mass value="0.03628739"/>
+			<inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.083" iyz="0.0" izz="0.083"/>
+		</inertial>
+		<collision name="collision">
+			<geometry>
+				<cylinder length="0.09525" radius="0.0047625"/>
+			</geometry>
+		</collision>
+		<visual name="visual">
+			<geometry>
+				<cylinder length="0.09525" radius="0.0047625"/>
+			</geometry>
+			<material name="grey"/>
+		</visual>
+	</link>
+	
+	<joint name="base_to_support4" type="fixed">
+		<parent link="base_plane"/>
+		<child link="support4"/>
+		<origin xyz="-0.0762 0.136 0.0492"/>
+	</joint>
+
+	<!-- support5 -->
+	<link name="support5">
+		<inertial>
+			<mass value="0.03628739"/>
+			<inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.083" iyz="0.0" izz="0.083"/>
+		</inertial>
+		<collision name="collision">
+			<geometry>
+				<cylinder length="0.09525" radius="0.0047625"/>
+			</geometry>
+		</collision>
+		<visual name="visual">
+			<geometry>
+				<cylinder length="0.09525" radius="0.0047625"/>
+			</geometry>
+			<material name="grey"/>
+		</visual>
+	</link>
+	
+	<joint name="base_to_support5" type="fixed">
+		<parent link="base_plane"/>
+		<child link="support5"/>
+		<origin xyz="0.0762 -0.136 0.0492"/>
+	</joint>
+
+	<!-- support6 -->
+	<link name="support6">
+		<inertial>
+			<mass value="0.03628739"/>
+			<inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.083" iyz="0.0" izz="0.083"/>
+		</inertial>
+		<collision name="collision">
+			<geometry>
+				<cylinder length="0.09525" radius="0.0047625"/>
+			</geometry>
+		</collision>
+		<visual name="visual">
+			<geometry>
+				<cylinder length="0.09525" radius="0.0047625"/>
+			</geometry>
+			<material name="grey"/>
+		</visual>
+	</link>
+	
+	<joint name="base_to_support6" type="fixed">
+		<parent link="base_plane"/>
+		<child link="support6"/>
+		<origin xyz="-0.0762 -0.136 0.0492"/>
+	</joint>
+
+	<!-- upper_plane -->
+	<link name="upper_plane">
+		<inertial>
+			
+          		<mass value="0.19"/>
+          		<inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.083" iyz="0.0" izz="0.083"/>
+        	</inertial>
+  		<visual>
+          		<geometry>
+            			<box size="0.1778 0.298 0.0031"/>
+          		</geometry>
+          		
+          		<!--<material name="Yellow2">
+				<color rgba="0.6 0.8 0 0.6"/>
+			</material>-->
+          		<gazebo reference="upper_plane">
+            			<material>
+              				<ambient>0.7 0.7 0 1</ambient>
+              				<diffuse>0.7 0.7 0 1</diffuse>
+              				<specular>0.7 0.7 0 1</specular>
+              				<emissive>0.7 0.7 0 1</emissive>
+					<script>Gazebo/Yellow</script>
+            			</material>
+          		</gazebo> 
+		</visual>
+		<collision name="collision">
+			<geometry>
+				<box size="0.1778 0.298 0.0031"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="pillars_to_roof" type="fixed">
+      		<parent link="support1"/>
+		<child link="upper_plane"/>
+		<origin xyz="-0.0762 0 0.0492"/>
+	</joint>
+
+	<!-- ps3 camera left -->
+	<link name="ps3_left">
+        	<inertial>
+        		<mass value="0.173"/>
+        		<inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+                </inertial>
+        	<collision name="collision">
+        		<geometry>
+          			<box size="0.084 0.067 0.065"/>
+        		</geometry>
+
+        	</collision>
+        	<visual name="visual">
+        		<geometry>
+          			<mesh filename="package://lab6_pkg/models/meshes/PlayStation_Eye.STL" scale="0.001 0.001 0.001"/>
+        		</geometry>
+
+        		<material name="black"/>
+        	</visual>
+    	</link>
+	
+	<joint name="left_ps3_to_base" type="fixed">
+      		<parent link="base_plane"/>
+      		<child link="ps3_left"/>
+      		<origin xyz="0.0254 0.06985 0.027"/>
+    	</joint>
+
+	<!-- ps3 camera right -->
+	<link name="ps3_right">
+        	<inertial>
+        		<mass value="0.173"/>
+        		<inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+                </inertial>
+        	<collision name="collision">
+        		<geometry>
+          			<box size="0.084 0.067 0.065"/>
+        		</geometry>
+        	</collision>
+        	<visual name="visual">
+        		<geometry>
+          			<mesh filename="package://lab6_pkg/models/meshes/PlayStation_Eye.STL" scale="0.001 0.001 0.001"/>
+        		</geometry>
+        		<material name="black"/>
+        	</visual>
+    	</link>
+	
+	<joint name="right_ps3_to_base" type="fixed">
+      		<parent link="base_plane"/>
+      		<child link="ps3_right"/>
+      		<origin xyz="0.0254 -0.06985 0.027"/>
+    	</joint>
+
+	<!-- heat sink -->
+	<link name="heat_sink">
+		<inertial>
+			
+          		<mass value="0.19"/>
+          		<inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.083" iyz="0.0" izz="0.083"/>
+        	</inertial>
+  		<visual name="visual">
+          		<geometry>
+            			<box size="0.1778 0.20 0.0011"/>
+          		</geometry>
+          		<material name="yellow"/>
+
+		</visual>
+		<collision name="collision">
+			<geometry>
+				<box size="0.1778 0.21 0.0011"/>
+			</geometry>
+		</collision>
+	</link>
+	<joint name="heat_sink_to_upper_plane" type="fixed">
+      		<parent link="upper_plane"/>
+      		<child link="heat_sink"/>
+      		<origin xyz="0.0 0 0.002"/>
+    	</joint>
+
+	<!-- hokuyo_lidar -->
+	<link name="hokuyo_lidar">
+        	<inertial>
+        		<mass value="0.130"/>
+        		<inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+                </inertial>
+        	<collision name="collision">
+        		<geometry>
+          			<box size="0.050 0.050 0.070"/>
+        		</geometry>
+        	</collision>
+        	<visual name="visual">
+        		<geometry>
+          			<mesh filename="package://lab6_pkg/models/meshes/Hokuyo_ST_10LX.STL" scale="0.001 0.001 0.001"/>
+        		</geometry>
+        		<material name="orange"/>
+        	</visual>
+    	</link>
+	
+	<joint name="heat_sink_to_hokuyo_lidar" type="fixed">
+      		<parent link="heat_sink"/>
+      		<child link="hokuyo_lidar"/>
+      		<origin xyz="0.0 0 0.050"/>
+    	</joint>
+
+<!-- PLugins -->
+
+  <!-- Left camera -->
+	<gazebo reference="ps3_left">
+		<sensor type="camera" name="play_station_left">
+			<update_rate>60.0</update_rate>
+			<camera name="head">
+				<horizontal_fov>1.309</horizontal_fov>  <!-- when 75degree is taken-->
+				<image>
+					<width>640</width>
+					<height>480</height>
+					<format>R8G8B8</format>
+				</image>
+				<clip>
+					<near>0.02</near>
+					<far>300</far>
+				</clip>
+				<noise>
+					<type>gaussian</type>
+					<!-- Noise is sampled independently per pixel on each frame.
+					That pixel's noise value is added to each of its color
+					channels, which at that point lie in the range [0,1]. -->
+					<mean>0.0</mean>
+					<stddev>0.007</stddev>
+				</noise>
+			</camera>
+			<plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+				<alwaysOn>true</alwaysOn>
+				<updateRate>60</updateRate>
+				<cameraName>/left</cameraName>
+				<imageTopicName>image_raw</imageTopicName>
+				<cameraInfoTopicName>camera_info</cameraInfoTopicName>
+				<frameName>ps3_left</frameName>
+				<hackBaseline>0.07</hackBaseline>
+				<distortionK1>0.0</distortionK1>
+				<distortionK2>0.0</distortionK2>
+				<distortionK3>0.0</distortionK3>
+				<distortionT1>0.0</distortionT1>
+				<distortionT2>0.0</distortionT2>
+			</plugin>
+		</sensor>
+	</gazebo>
+	
+
+  <!-- right camera -->
+	<gazebo reference="ps3_right">
+		<sensor type="camera" name="play_station_right">
+			<update_rate>60.0</update_rate>
+			<camera name="head">
+				<horizontal_fov>1.309</horizontal_fov>  <!-- when 75degree is taken-->
+				<image>
+					<width>640</width>
+					<height>480</height>
+					<format>R8G8B8</format>
+				</image>
+				<clip>
+					<near>0.02</near>
+					<far>300</far>
+				</clip>
+				<noise>
+					<type>gaussian</type>
+					<!-- Noise is sampled independently per pixel on each frame.
+					That pixel's noise value is added to each of its color
+					channels, which at that point lie in the range [0,1]. -->
+					<mean>0.0</mean>
+					<stddev>0.007</stddev>
+				</noise>
+			</camera>
+			<plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+				<alwaysOn>true</alwaysOn>
+				<updateRate>60</updateRate>
+				<cameraName>/right</cameraName>
+				<imageTopicName>image_raw</imageTopicName>
+				<cameraInfoTopicName>camera_info</cameraInfoTopicName>
+				<frameName>ps3_right</frameName>
+				<hackBaseline>0.07</hackBaseline>
+				<distortionK1>0.0</distortionK1>
+				<distortionK2>0.0</distortionK2>
+				<distortionK3>0.0</distortionK3>
+				<distortionT1>0.0</distortionT1>
+				<distortionT2>0.0</distortionT2>
+			</plugin>
+		</sensor>
+	</gazebo>
+
+  <!-- hokuyo laser -->
+
+	<gazebo reference="hokuyo_lidar">
+		<sensor type="ray" name="head_hokuyo_sensor">
+			<pose>0 0 0 0 0 0</pose>
+			<visualize>false</visualize>
+			<update_rate>40</update_rate>
+			<ray>
+				<scan>
+					<horizontal>
+						<samples>1080</samples>
+						<resolution>1</resolution>
+						<min_angle>-2.3571</min_angle>
+						<max_angle>2.3571</max_angle>
+					</horizontal>
+				</scan>
+				<range>
+					<min>0.10</min>
+					<max>30.0</max>
+					<resolution>0.01</resolution>
+				</range>
+				<noise>
+					<type>gaussian</type>
+					<!-- Noise parameters based on published spec for Hokuyo laser
+					achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+					stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+					reading. -->
+					<mean>0.0</mean>
+					<stddev>0.01</stddev>
+				</noise>
+			</ray>
+			<plugin name="hokuyo_laser_controller" filename="libgazebo_ros_laser.so">
+				<topicName>/front/scan</topicName>
+				<frameName>hokuyo_lidar</frameName>
+			</plugin>
+		</sensor>
+	</gazebo>
+
+
+
+</robot>

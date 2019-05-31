@@ -1,0 +1,94 @@
+<?xml version='1.0'?>
+
+<robot name=mount>
+
+
+	<link name="base_plane">
+		<inertial>
+			
+          		<mass value="0.19"/>
+          		<inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.083" iyz="0.0" izz="0.083"/>
+        	</inertial>
+  		<visual name="visual">
+          		<geometry>
+            			<box size="0.1778 0.298 0.0031"/>
+          		</geometry>
+          		<material name="yellow"/>
+          		<gazebo reference="base_plane">
+            			<material>
+              				<ambient>0.7 0.7 0 1</ambient>
+              				<diffuse>0.7 0.7 0 1</diffuse>
+              				<specular>0.7 0.7 0 1</specular>
+              				<emissive>0.7 0.7 0 1</emissive>
+            			</material>
+          		</gazebo>
+		</visual>
+		<collision name="collision">
+			<geometry>
+				<box size="0.1778 0.298 0.0031"/>
+			</geometry>
+		</collision>
+	</link>
+
+
+	<link name="upper_plane">
+		<inertial>
+			
+          		<mass value="0.19"/>
+          		<inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.083" iyz="0.0" izz="0.083"/>
+        	</inertial>
+  		<visual name="visual">
+          		<geometry>
+            			<box size="0.1778 0.298 0.0031"/>
+          		</geometry>
+          		<material name="yellow"/>
+          		<gazebo reference="upper_plate">
+            			<material>
+              				<ambient>0.7 0.7 0 1</ambient>
+              				<diffuse>0.7 0.7 0 1</diffuse>
+              				<specular>0.7 0.7 0 1</specular>
+              				<emissive>0.7 0.7 0 1</emissive>
+            			</material>
+          		</gazebo>
+		</visual>
+		<collision name="collision">
+			<geometry>
+				<box size="0.1778 0.298 0.0031"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name="base_to_upper" type="fixed">
+      		<parent link="base_plane"/>
+		<child link="upper_plane"/>
+		<origin xyz="0 0 0.098425"/>
+	</joint>
+	
+	<!-- support1 -->
+	<link name="support1">
+		<inertial>
+			<mass value="0.03628739"/>
+			<inertia ixx="0.083" ixy="0.0" ixz="0.0" iyy="0.083" iyz="0.0" izz="0.083"/>
+		</inertial>
+		<collision name="collision">
+			<geometry>
+				<cylinder length="0.09525" radius="0.0047625"/>
+			</geometry>
+		</collision>
+		<visual name="visual">
+			<geometry>
+				<cylinder length="0.09525" radius="0.0047625"/>
+			</geometry>
+			<material name="grey"/>
+		</visual>
+	</link>
+	
+	<joint name="base_to_support1" type="fixed">
+		<parent link="base_plane"/>
+		<child link="support1"/>
+		<origin xyz="0.0762 0 0.0492"/>
+	</joint>
+
+
+
+</robot>

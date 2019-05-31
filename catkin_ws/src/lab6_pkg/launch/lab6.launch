@@ -1,0 +1,67 @@
+<launch>
+
+  <!-- setting environment variable so Gazebo knows where to look -->
+  <env name="GAZEBO_MODEL_PATH" value="$(find lab6_pkg)/models/" />
+  <env name="GAZEBO_RESOURCE_PATH" value="$(find lab6_pkg)/models/" />
+  <env name="JACKAL_URDF_EXTRAS" value="$(find lab6_pkg)/urdf/sensor.urdf" />
+  <env name="USE_JACKAL_URDF_EXTRAS" value="1" />
+  
+  <param name="wall_distance" type="double" value="0.7" />
+  <param name="resume_delay" type="double" value="10" />
+  <param name="max_speed" type="double" value="0.6" />
+  <param name="explore_time" type="double" value="30" />
+
+  <param name="foo" value="$(optenv JACKAL_LASER 0)" />
+  <param name="foo1" value="$(optenv JACKAL_FLEA3 0)" />
+
+  <env name="JACKAL_LASER" value="0" />
+
+  <arg name="use_sim_time" default="true" />
+  <arg name="gui" default="true" />
+  <arg name="headless" default="false" />
+  <arg name="world_name" value="$(find lab6_pkg)/worlds/jackal_race.world"/>
+  <arg name="default_config" value="base"/> 
+
+  <!-- Configuration of Jackal which you would like to simulate.
+       See jackal_description for details. -->
+  <arg name="config" default="$(arg default_config)" />
+
+  <!-- Launch Gazebo with the specified world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="debug" value="0" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="use_sim_time" value="$(arg use_sim_time)" />
+    <arg name="headless" value="$(arg headless)" />
+    <arg name="world_name" value="$(arg world_name)" />
+  </include>
+  
+  <!-- Load Jackal's description, controllers, and teleop nodes. -->
+  <include file="$(find jackal_description)/launch/description.launch">
+    <arg name="config" value="$(arg config)" />
+  </include>
+
+  <include file="$(find jackal_control)/launch/control.launch" />
+  <include file="$(find jackal_navigation)/launch/include/gmapping.launch" />
+  <include file="$(find jackal_control)/launch/teleop.launch">  
+   
+    <arg name="joystick" value="false"/>
+  </include>
+  
+  <!--Making sure that the laserscan starts right away as well as the twist filtering -->
+
+  <!-- Uncomment line below for wall following and make sure line following is commented -->
+  <!-- <node pkg="lab6_pkg" type="laser_scan.py" name="laser_based_control" /> -->
+
+  <!-- Uncomment below line for line following and make sure to comment above line for wall following -->
+  <node pkg="lab6_pkg" type="line_follower.py" name="eyes" />
+
+  
+  
+
+  <!-- Spawn Jackal -->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="-urdf -model jackal -param robot_description -x -7 -y 6 -z 1.0" />
+
+  <!-- Rviz-->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find lab6_pkg)/rviz/mapping.rviz" />
+
+</launch>
